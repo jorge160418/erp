@@ -12,5 +12,11 @@
 			$this->sentencia = "SELECT * FROM actividad";
 			return $this->obtenerSentencia();
 		}
+
+		public function eliminar($id){
+			$this->sentencia = "DELETE FROM actividad WHERE IDactividad=$id";
+			$this->ejecutarSentencia();
+		}
+
 	}
  ?>

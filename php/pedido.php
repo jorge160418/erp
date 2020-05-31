@@ -13,6 +13,10 @@ class Pedido extends Conexion{
 		$this->sentencia = "SELECT * FROM pedido";
 		return $this->obtenerSentencia();
 	}
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM pedido WHERE IDpedido=$id";
+		$this->ejecutarSentencia();
+}
 }
 
  ?>

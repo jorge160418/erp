@@ -13,6 +13,10 @@ class Pago extends Conexion{
 		$this->sentencia = "SELECT * FROM pago";
 		return $this->obtenerSentencia();
 	}
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM pago WHERE IDpago=$id";
+		$this->ejecutarSentencia();
+}
 }
 
  ?>

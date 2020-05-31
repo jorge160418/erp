@@ -13,6 +13,10 @@ class Producto extends Conexion{
 		$this->sentencia = "SELECT * FROM producto";
 		return $this->obtenerSentencia();
 	}
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM producto WHERE IDproducto=$id";
+		$this->ejecutarSentencia();
+}
 }
 
  ?>

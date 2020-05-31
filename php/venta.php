@@ -4,8 +4,8 @@ require_once("conexion.php");
 
 class Venta extends Conexion{
 
-	public function alta($fecha,$IDcliente,$total,$tipo_pago){
-		$this->sentencia = "INSERT INTO venta VALUES (null,'$fecha','$IDcliente','$total','$tipo_pago')";
+	public function alta($fecha,$IDCliente,$Total,$tipo_pago){
+		$this->sentencia = "INSERT INTO venta VALUES (null,'$fecha','$IDCliente','$Total','$tipo_pago')";
 		$this->ejecutarSentencia();
 	}
 
@@ -13,6 +13,9 @@ class Venta extends Conexion{
 		$this->sentencia = "SELECT * FROM venta";
 		return $this->obtenerSentencia();
 	}
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM venta WHERE IDVenta=$id";
+		$this->ejecutarSentencia();
 }
-
+}
  ?>

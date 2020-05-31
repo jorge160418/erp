@@ -8,4 +8,12 @@
 	while($fila = $res->fetch_assoc()){
 		echo $fila["ID"]." ".$fila["Nombre"]." ".$fila["Tipo"]." ".$fila["Descripcion"]."  ".$fila["Precio"]."  ".$fila["Stock"]."  ".$fila["Existencias"]."<br>";
 	}
+
+	echo "******************************";
+	$obj->eliminar(3);
+	$res = $obj->consulta();
+
+	while($fila = $res->fetch_assoc()){
+		echo $fila["ID"]." ".$fila["Nombre"]." ".$fila["Tipo"]." ".$fila["Descripcion"]."  ".$fila["Precio"]."  ".$fila["Stock"]."  ".$fila["Existencias"]."<br>";
+	}
  ?>

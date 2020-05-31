@@ -13,6 +13,10 @@ class Mantenimiento extends Conexion{
 		$this->sentencia = "SELECT * FROM mantenimiento";
 		return $this->obtenerSentencia();
 	}
+	public function eliminar($id){
+		$this->sentencia = "DELETE FROM mantenimiento WHERE IDmantenimiento=$id";
+		$this->ejecutarSentencia();
+}
 }
 
  ?>

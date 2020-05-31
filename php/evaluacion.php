@@ -13,6 +13,12 @@
 			$this->sentencia = "SELECT * FROM evaluacion";
 			return $this->obtenerSentencia();
 		}
+
+		public function eliminar($id){
+			$this->sentencia = "DELETE FROM evaluacion WHERE IDevaluacion=$id";
+			$this->ejecutarSentencia();
+		}
+		
 	}
 
  ?>
