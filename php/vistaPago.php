@@ -11,6 +11,16 @@
 		Metodo de pago: <input type="text" name="met_pag"> <br>
 		Descripcion: <input type="text" name="des"> <br>
 				<input type="submit" value="Agregar Pago" name="alta">
+						<br>
+				<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Pago eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Pago agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -21,7 +31,7 @@
 			$des = $_POST["des"];
 			
 			$obj->alta($IDempleado,$sal,$fecha_dep,$met_pag,$des);
-			echo "<h2>Pago agregado</h2>";
+				header("Location: ?sec=pago");
 		}
 
 		$resultado = $obj->consulta();
@@ -44,8 +54,26 @@
 				echo "<td>".$fila["met_pag"]."</td>";
 				echo "<td>".$fila["des"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDpago']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=pago");
+		}
+
+	 ?>
 
 </section>

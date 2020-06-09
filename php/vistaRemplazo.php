@@ -10,6 +10,16 @@
 		Costo: <input type="" name="costo"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
 				<input type="submit" value="Agregar Reemplazo" name="alta">
+						<br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>URemplazo eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Remplazo agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -19,7 +29,7 @@
 			$descripcion = $_POST["descripcion"];
 			
 			$obj->alta($IDmobiliario,$fecha,$costo,$descripcion);
-			echo "<h2>Reemplazo agregado</h2>";
+			header("Location: ?sec=remplazo");
 		}
 
 		$resultado = $obj->consulta();
@@ -40,8 +50,26 @@
 				echo "<td>".$fila["costo"]."</td>";
 				echo "<td>".$fila["descripcion"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDremplazo']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=remplazo");
+		}
+
+	 ?>
 
 </section>

@@ -11,6 +11,16 @@
 		Correo: <input type="email" name="correo"> <br>
 		RFC: <input type="" name="rfc"> <br>
 				<input type="submit" value="Agregar Proveedor" name="alta">
+						<br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Proveedor eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Proveedor agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -21,7 +31,7 @@
 			$rfc = $_POST["rfc"];
 			
 			$obj->alta($nombre,$telefono,$direccion,$correo,$rfc);
-			echo "<h2>Proveedor agregado</h2>";
+			header("Location: ?sec=proveedor");
 		}
 
 		$resultado = $obj->consulta();
@@ -44,8 +54,26 @@
 				echo "<td>".$fila["correo"]."</td>";
 				echo "<td>".$fila["rfc"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDproveedor']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=proveedor");
+		}
+
+	 ?>
 
 </section>

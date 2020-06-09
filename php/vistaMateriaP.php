@@ -12,6 +12,16 @@
 		Stock: <input type="" name="Stock"> <br>
 		Existencia: <input type="" name="Existencias"> <br>
 				<input type="submit" value="Agregar Materi Prima" name="alta">
+				<br>
+						<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Materia Prima eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Materia Prima agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -23,7 +33,7 @@
 			$Existencias = $_POST["Existencias"];
 			
 			$obj->alta($Nombre,$Tipo,$Descripcion,$Precio,$Stock,$Existencias);
-			echo "<h2>Materia Prima agregado</h2>";
+				header("Location: ?sec=matprim");
 		}
 
 		$resultado = $obj->consulta();
@@ -48,8 +58,25 @@
 				echo "<td>".$fila["Stock"]."</td>";
 				echo "<td>".$fila["Existencias"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['ID']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=matprim");
+		}
 
+	 ?>
 </section>

@@ -18,7 +18,16 @@
 		Pregunta 10: <input type="text" name="pregunta10"> <br>
 		
 		
-		<input type="submit" value="Agregar Evaluacion" name="alta">
+		<input type="submit" value="Agregar Evaluacion" name="alta"><br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Evaluacion eliminada</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Evaluacion agregada</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -54,6 +63,7 @@
 			<th>Pregunta 8</th>
 			<th>Pregunta 9</th>			
 			<th>Pregunta 10</th>
+			<th>Eliminar</th>
 			
 		</tr>
 		<?php 
@@ -70,10 +80,24 @@
 				echo "<td>".$fila["pregunta8"]."</td>";	
 				echo "<td>".$fila["pregunta9"]."</td>";	
 				echo "<td>".$fila["pregunta10"]."</td>";				
-
+				?>
+				<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDevaluacion']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>									
+				<?php
 				echo "</tr>";
 			}
 		 ?>
-	</table>
+		</table>
+		<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=eva&e=1");
+		}
 
+	 ?>
 </section>

@@ -19,7 +19,16 @@
 		NSS: <input type="text" name="nss"> <br>
 		
 		
-		<input type="submit" value="Agregar Empleado" name="alta">
+		<input type="submit" value="Agregar Empleado" name="alta"><br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Empleado eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Empleado agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -38,7 +47,7 @@
 			
 				
 			$obj->alta($nombre,$appaterno,$apmaterno,$correo,$rfc,$telefono,$sexo,$fechadeingreso,$cargo,$salario,$estadocivil,$nss);
-			echo "<h2>Empleado agregada</h2>";
+			echo "<h2>Empleado agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -58,6 +67,7 @@
 			<th>Salario</th>
 			<th>Estado Civil</th>
 			<th>NSS</th>
+			<th>Eliminar</th>
 			
 		</tr>
 		<?php 
@@ -75,10 +85,24 @@
 				echo "<td>".$fila["salario"]."</td>";	
 				echo "<td>".$fila["estadocivil"]."</td>";
 				echo "<td>".$fila["nss"]."</td>";
-
+				?>
+				<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDempleado']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>									
+				<?php
 				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=emp&e=1");
+		}
 
+	 ?>
 </section>

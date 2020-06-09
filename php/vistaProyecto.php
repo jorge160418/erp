@@ -12,6 +12,16 @@
 		Fecha de termino: <input type="date" name="fecha_fin"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
 				<input type="submit" value="Agregar Proyecto" name="alta">
+						<br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Proyecto eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Proyecto agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -23,7 +33,7 @@
 			$descripcion = $_POST["descripcion"];
 			
 			$obj->alta($nombre_pro,$tipo_pro,$IDempleado,$fecha_in,$fecha_fin,$descripcion);
-			echo "<h2>Proyecto agregado</h2>";
+			header("Location: ?sec=proyecto");
 		}
 
 		$resultado = $obj->consulta();
@@ -48,8 +58,26 @@
 				echo "<td>".$fila["fecha_fin"]."</td>";
 				echo "<td>".$fila["descripcion"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDproyecto']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=proyecto");
+		}
+
+	 ?>
 
 </section>

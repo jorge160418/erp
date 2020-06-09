@@ -14,6 +14,16 @@
 		Cantidad maxima: <input type="" name="cantmax"> <br>
 		Categoria: <input type="" name="categoria"> <br>
 				<input type="submit" value="Agregar Producto" name="alta">
+									<br>
+				<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Producto eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Producto agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -27,8 +37,8 @@
 			$categoria = $_POST["categoria"];
 			
 			$obj->alta($nombre,$descripcion,$preciov,$precioc,$cantidad,$cantmin,$cantmax,$categoria);
-			echo "<h2>Producto agregado</h2>";
-		}
+			header("Location: ?sec=producto");
+			}
 
 		$resultado = $obj->consulta();
 	 ?>
@@ -57,8 +67,25 @@
 				echo "<td>".$fila["cantmax"]."</td>";
 				echo "<td>".$fila["categoria"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDproducto']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=producto");
+		}
 
+	 ?>
 </section>

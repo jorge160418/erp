@@ -14,7 +14,16 @@
 		Sexo: <input type="text" name="sexo"> <br>
 		Fecha de Nacimiento: <input type="text" name="fenacimiento"> <br>
 		
-		<input type="submit" value="Agregar Cliente" name="alta">
+		<input type="submit" value="Agregar Cliente" name="alta"><br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Cliente eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Cliente agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -43,7 +52,8 @@
 			<th>Apellido Materno</th>
 			<th>Apellido Paterno</th>
 			<th>Sexo</th>
-			<th>Fecha de Nacimiento</th>			
+			<th>Fecha de Nacimiento</th>
+			<th>Eliminar</th>			
 			
 		</tr>
 		<?php 
@@ -57,10 +67,24 @@
 				echo "<td>".$fila["apepaterno"]."</td>";
 				echo "<td>".$fila["sexo"]."</td>";
 				echo "<td>".$fila["fenacimiento"]."</td>";
-				
+				?>
+				<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDcliente']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>									
+				<?php
 				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=cli&e=1");
+		}
 
+	 ?>
 </section>

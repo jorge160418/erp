@@ -11,6 +11,16 @@
 		Costo de mantenimiento: <input type="" name="costo_man"> <br>
 		IDempleado: <input type="" name="IDempleado"> <br>
 				<input type="submit" value="Agregar Mantenimiento" name="alta">
+				<br>
+					<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Mantenimiento eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Mantenimiento agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -21,7 +31,7 @@
 			$IDempleado = $_POST["IDempleado"];
 			
 			$obj->alta($fecha_man,$area,$IDmob,$costo_man,$IDempleado);
-			echo "<h2>Mantenimiento agregado</h2>";
+		header("Location: ?sec=mant");
 		}
 
 		$resultado = $obj->consulta();
@@ -44,8 +54,24 @@
 				echo "<td>".$fila["costo_man"]."</td>";
 				echo "<td>".$fila["IDempleado"]."</td>";
 				echo "</tr>";
-			}
 		 ?>
+		 	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDmantenimiento']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
+			}
+		?>
 	</table>
+<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=mant");
+		}
 
+	 ?>
 </section>

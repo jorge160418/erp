@@ -12,6 +12,16 @@
 		Direccion: <input type="text" name="direccion"> <br>
 		IDproducto: <input type="" name="IDproducto"> <br>
 				<input type="submit" value="Agregar Pedido" name="alta">
+									<br>
+				<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Pedido eliminado</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Pedido agregado</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
@@ -23,8 +33,7 @@
 			$IDproducto = $_POST["IDproducto"];
 			
 			$obj->alta($fecha,$IDcliente,$precio,$cantidad,$direccion,$IDproducto);
-			echo "<h2>Materia Prima agregado</h2>";
-		}
+				header("Location: ?sec=pedido");		}
 
 		$resultado = $obj->consulta();
 	 ?>
@@ -48,8 +57,26 @@
 				echo "<td>".$fila["direccion"]."</td>";
 				echo "<td>".$fila["IDproducto"]."</td>";
 				echo "</tr>";
+			
+		 ?>
+	<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDpedido']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>
+				<?php
+				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=pedido");
+		}
+
+	 ?>
 
 </section>

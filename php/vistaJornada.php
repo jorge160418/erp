@@ -12,7 +12,16 @@
 		Bonos: <input type="text" name="bonos"> <br>
 		IDempleado: <input type="text" name="IDempleado"> <br>				
 		
-		<input type="submit" value="Agregar Jornada" name="alta">
+		<input type="submit" value="Agregar Jornada" name="alta"><br>
+		<?php 
+		if(isset($_GET["e"])){
+			echo "<h2>Jornada eliminada</h2>";
+		}
+		if(isset($_GET["i"])){
+			echo "<h2>Jornada agregada</h2>";
+		}
+
+		 ?>
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){					
@@ -37,7 +46,8 @@
 			<th>Pago Hora</th>
 			<th>Horas Extra</th>
 			<th>Bonos</th>
-			<th>IDempleado</th>			
+			<th>IDempleado</th>
+			<th>Eliminar</th>			
 			
 		</tr>
 		<?php 
@@ -48,11 +58,25 @@
 				echo "<td>".$fila["pago_hora"]."</td>";
 				echo "<td>".$fila["horas_extra"]."</td>";
 				echo "<td>".$fila["bonos"]."</td>";	
-				echo "<td>".$fila["IDempleado"]."</td>";									
-
+				echo "<td>".$fila["IDempleado"]."</td>";
+				?>
+				<td>
+				<form action="" method="post" class="eliminar">
+					<input type="hidden" value="<?php echo $fila['IDjornada']; ?>" name="id">
+					<input type="submit" value="Eliminar" name="eliminar">
+				</form>
+				</td>									
+				<?php
 				echo "</tr>";
 			}
 		 ?>
 	</table>
+	<?php 
+		if(isset($_POST["eliminar"])){
+			$id = $_POST["id"];
+			$obj->eliminar($id);
+			header("Location: ?sec=jor&e=1");
+		}
 
+	 ?>
 </section>
