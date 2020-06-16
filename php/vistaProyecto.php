@@ -33,7 +33,7 @@
 			$descripcion = $_POST["descripcion"];
 			
 			$obj->alta($nombre_pro,$tipo_pro,$IDempleado,$fecha_in,$fecha_fin,$descripcion);
-			header("Location: ?sec=proyecto");
+			echo "<h2>Proyecto agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -75,7 +75,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=proyecto");
+			header("Location: ?sec=proyecto&e=1");
 		}
 
 	 ?>

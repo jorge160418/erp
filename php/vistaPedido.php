@@ -33,7 +33,8 @@
 			$IDproducto = $_POST["IDproducto"];
 			
 			$obj->alta($fecha,$IDcliente,$precio,$cantidad,$direccion,$IDproducto);
-				header("Location: ?sec=pedido");		}
+			echo "<h2>Pedido agregado</h2>";
+					}
 
 		$resultado = $obj->consulta();
 	 ?>
@@ -74,7 +75,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=pedido");
+			header("Location: ?sec=pedido&e=1");
 		}
 
 	 ?>

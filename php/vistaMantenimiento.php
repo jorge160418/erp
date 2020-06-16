@@ -31,7 +31,7 @@
 			$IDempleado = $_POST["IDempleado"];
 			
 			$obj->alta($fecha_man,$area,$IDmob,$costo_man,$IDempleado);
-		header("Location: ?sec=mant");
+	echo "<h2>Mantenimiento agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -70,7 +70,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=mant");
+			header("Location: ?sec=mant&e=1");
 		}
 
 	 ?>

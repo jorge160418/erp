@@ -37,7 +37,7 @@
 			$categoria = $_POST["categoria"];
 			
 			$obj->alta($nombre,$descripcion,$preciov,$precioc,$cantidad,$cantmin,$cantmax,$categoria);
-			header("Location: ?sec=producto");
+			echo "<h2>Producto agregada</h2>";
 			}
 
 		$resultado = $obj->consulta();
@@ -84,7 +84,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=producto");
+			header("Location: ?sec=producto&e=1");
 		}
 
 	 ?>

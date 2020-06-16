@@ -13,7 +13,7 @@
 						<br>
 		<?php 
 		if(isset($_GET["e"])){
-			echo "<h2>URemplazo eliminado</h2>";
+			echo "<h2>Remplazo eliminado</h2>";
 		}
 		if(isset($_GET["i"])){
 			echo "<h2>Remplazo agregado</h2>";
@@ -29,7 +29,7 @@
 			$descripcion = $_POST["descripcion"];
 			
 			$obj->alta($IDmobiliario,$fecha,$costo,$descripcion);
-			header("Location: ?sec=remplazo");
+			echo "<h2>Reemplazo agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -67,7 +67,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=remplazo");
+			header("Location: ?sec=remplazo&e=1");
 		}
 
 	 ?>

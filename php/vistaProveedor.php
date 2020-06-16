@@ -31,7 +31,7 @@
 			$rfc = $_POST["rfc"];
 			
 			$obj->alta($nombre,$telefono,$direccion,$correo,$rfc);
-			header("Location: ?sec=proveedor");
+			echo "<h2>Proveedor agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -71,7 +71,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=proveedor");
+			header("Location: ?sec=proveedor&e=1");
 		}
 
 	 ?>

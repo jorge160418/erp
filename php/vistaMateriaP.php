@@ -7,7 +7,7 @@
 	<form action="" method="post">
 		Nombre: <input type="text" name="Nombre"> <br>
 		Tipo: <input type="text" name="Tipo"> <br>
-		Descripcion: <input type="text" name="Dscripcion"> <br>
+		Descripcion: <input type="text" name="Descripcion"> <br>
 		Precio: <input type="" name="Precio"> <br>
 		Stock: <input type="" name="Stock"> <br>
 		Existencia: <input type="" name="Existencias"> <br>
@@ -33,7 +33,7 @@
 			$Existencias = $_POST["Existencias"];
 			
 			$obj->alta($Nombre,$Tipo,$Descripcion,$Precio,$Stock,$Existencias);
-				header("Location: ?sec=matprim");
+				echo "<h2>AMateria Prima agregada</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -75,7 +75,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=matprim");
+			header("Location: ?sec=matprim&e=1");
 		}
 
 	 ?>

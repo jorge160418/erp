@@ -31,7 +31,7 @@
 			$des = $_POST["des"];
 			
 			$obj->alta($IDempleado,$sal,$fecha_dep,$met_pag,$des);
-				header("Location: ?sec=pago");
+				echo "<h2>Pago agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -71,7 +71,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=pago");
+			header("Location: ?sec=pago&e=1");
 		}
 
 	 ?>

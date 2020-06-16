@@ -32,7 +32,7 @@
 		
 			
 			$obj->alta($nombre,$descripcion,$cantidad,$nic,$Tipo);
-			header("Location: ?sec=mob");
+			echo "<h2>Mobiliario agregado</h2>";
 		}
 
 		$resultado = $obj->consulta();
@@ -71,7 +71,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=mob");
+			header("Location: ?sec=mob&e=1");
 		}
 
 	 ?>

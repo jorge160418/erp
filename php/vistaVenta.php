@@ -29,8 +29,8 @@
 			$tipo_pago = $_POST["tipo_pago"];
 			
 			$obj->alta($fecha,$IDCliente,$Total,$tipo_pago);
-		header("Location: ?sec=venta");
-		}
+			echo "<h2>Venta agregada</h2>";
+				}
 
 		$resultado = $obj->consulta();
 	 ?>
@@ -67,7 +67,7 @@
 		if(isset($_POST["eliminar"])){
 			$id = $_POST["id"];
 			$obj->eliminar($id);
-			header("Location: ?sec=venta");
+			header("Location: ?sec=venta&e=1");
 		}
 
 	 ?>
