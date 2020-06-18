@@ -47,6 +47,7 @@
 			<th>Fecha de inicio</th>
 			<th>Fecha de termino</th>
 			<th>Descripcion</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -56,8 +57,7 @@
 				echo "<td>".$fila["IDempleado"]."</td>";
 				echo "<td>".$fila["fecha_in"]."</td>";
 				echo "<td>".$fila["fecha_fin"]."</td>";
-				echo "<td>".$fila["descripcion"]."</td>";
-				echo "</tr>";
+				echo "<td>".$fila["descripcion"]."</td>";				
 			
 		 ?>
 	<td>

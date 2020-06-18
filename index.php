@@ -101,6 +101,21 @@
 					case 'venta':
 					require_once("php/vistaVenta.php");
 					break;
+					case 'gpro':
+					require_once("php/graficaProducto.php");
+					break;
+					case 'gven':
+					require_once("php/graficaVenta.php");
+					break;
+					case 'gcom':
+					require_once("php/graficaCompra.php");
+					break;
+					case 'gmp':
+					require_once("php/graficaMateriaP.php");
+					break;
+					case 'gmob':
+					require_once("php/graficaMobiliario.php");
+					break;
 			}
 		}
 	 ?>

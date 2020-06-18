@@ -3,20 +3,21 @@
 	$obj = new Venta();
  ?>
 <section id="principal">
-
-	<form action="" method="post">
+	<div>
+		<a href="?sec=gven"><input type="button" value="Generar Gráfica"></a>
+	</div>
+	<form action="" method="POST">
 		Fecha de venta: <input type="date" name="fecha"> <br>
-		IDCliente: <input type="" name="IDCliente"> <br>
-		Total: <input type="" name="Total"> <br>
-		Tipo de pago: <input type="" name="tipo_pago"> <br>
-				<input type="submit" value="Agregar Venta" name="alta">
-						<br>
+		IDCliente: <input type="text" name="IDCliente"> <br>
+		Total: <input type="text" name="Total"> <br>
+		Tipo de pago: <input type="text" name="tipo_pago"> <br>
+		<input type="submit" value="Agregar Venta" name="alta"> <br>
 		<?php 
 		if(isset($_GET["e"])){
-			echo "<h2>Venta eliminado</h2>";
+			echo "<h2>Venta eliminada</h2>";
 		}
 		if(isset($_GET["i"])){
-			echo "<h2>Venta agregado</h2>";
+			echo "<h2>Venta agregada</h2>";
 		}
 
 		 ?>
@@ -41,6 +42,7 @@
 			<th>IDCliente</th>
 			<th>Total</th>
 			<th>Tipo de pago</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -49,7 +51,7 @@
 				echo "<td>".$fila["IDCliente"]."</td>";
 				echo "<td>".$fila["Total"]."</td>";
 				echo "<td>".$fila["tipo_pago"]."</td>";
-				echo "</tr>";
+				
 			
 		 ?>
 	<td>

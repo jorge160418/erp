@@ -13,10 +13,32 @@ class Producto extends Conexion{
 		$this->sentencia = "SELECT * FROM producto";
 		return $this->obtenerSentencia();
 	}
+
 	public function eliminar($id){
 		$this->sentencia = "DELETE FROM producto WHERE IDproducto=$id";
 		$this->ejecutarSentencia();
-}
+	}
+
+	public function nombres(){
+		$this->sentencia = "SELECT nombre FROM producto;";
+		$res = $this->obtenerSentencia();
+		$nombres = "";
+		while($fila = $res->fetch_assoc()){
+			$nombres = $nombres."'".$fila["nombre"]."',";
+		}
+		return $nombres;
+	}
+
+	public function cantidades(){
+		$this->sentencia = "SELECT cantidad FROM producto;";
+		$res = $this->obtenerSentencia();
+		$cantidades = "";
+		while($fila = $res->fetch_assoc()){
+			$cantidades = $cantidades.$fila["cantidad"].",";
+		}
+		return $cantidades;
+	}
+	
 }
 
  ?>

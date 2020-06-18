@@ -3,7 +3,9 @@
 	$obj = new MateriaPrima();
  ?>
 <section id="principal">
-
+	<div>
+		<a href="?sec=gmp"><input type="button" value="Generar Gráfica"></a>
+	</div>
 	<form action="" method="post">
 		Nombre: <input type="text" name="Nombre"> <br>
 		Tipo: <input type="text" name="Tipo"> <br>
@@ -47,6 +49,7 @@
 			<th>Precio</th>
 			<th>Stock</th>
 			<th>Existencias</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -57,7 +60,7 @@
 				echo "<td>".$fila["Precio"]."</td>";
 				echo "<td>".$fila["Stock"]."</td>";
 				echo "<td>".$fila["Existencias"]."</td>";
-				echo "</tr>";
+
 			
 		 ?>
 	<td>

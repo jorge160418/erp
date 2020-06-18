@@ -41,6 +41,7 @@
 			<th>Fecha de reemplazo</th>
 			<th>Costo</th>
 			<th>Descripcion</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -49,7 +50,7 @@
 				echo "<td>".$fila["fecha"]."</td>";
 				echo "<td>".$fila["costo"]."</td>";
 				echo "<td>".$fila["descripcion"]."</td>";
-				echo "</tr>";
+				
 			
 		 ?>
 	<td>

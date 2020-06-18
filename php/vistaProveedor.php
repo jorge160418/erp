@@ -44,6 +44,7 @@
 			<th>Direccion</th>
 			<th>Correo</th>
 			<th>RFC</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -52,8 +53,7 @@
 				echo "<td>".$fila["telefono"]."</td>";
 				echo "<td>".$fila["direccion"]."</td>";
 				echo "<td>".$fila["correo"]."</td>";
-				echo "<td>".$fila["rfc"]."</td>";
-				echo "</tr>";
+				echo "<td>".$fila["rfc"]."</td>";				
 			
 		 ?>
 <td>

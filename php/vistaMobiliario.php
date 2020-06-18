@@ -3,7 +3,9 @@
 	$obj = new Mobiliario();
  ?>
 <section id="principal">
-
+	<div>
+		<a href="?sec=gmob"><input type="button" value="Generar Gráfica"></a>
+	</div>
 	<form action="" method="post">
 		Nombre: <input type="text" name="nombre"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
@@ -40,11 +42,12 @@
 
 	<table>
 		<tr>
-			<th>Nomre</th>
+			<th>Nombre</th>
 			<th>Descripcion</th>
 			<th>Cantidad</th>
 			<th>Nic</th>
 			<th>Tipo</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -54,7 +57,6 @@
 				echo "<td>".$fila["cantidad"]."</td>";
 				echo "<td>".$fila["nic"]."</td>";
 				echo "<td>".$fila["tipo"]."</td>";
-				echo "</tr>";
 					 ?>
 	<td>
 				<form action="" method="post" class="eliminar">

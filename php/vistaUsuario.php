@@ -45,6 +45,7 @@
 			<th>Password</th>
 			<th>Tipo</th>
 			<th>Eliminar</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){

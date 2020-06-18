@@ -44,6 +44,7 @@
 			<th>ID de mobiliario</th>
 			<th>Costo de mnatenimiento</th>
 			<th>ID de empleado</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -53,7 +54,7 @@
 				echo "<td>".$fila["IDmob"]."</td>";
 				echo "<td>".$fila["costo_man"]."</td>";
 				echo "<td>".$fila["IDempleado"]."</td>";
-				echo "</tr>";
+
 		 ?>
 		 	<td>
 				<form action="" method="post" class="eliminar">

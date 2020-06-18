@@ -16,7 +16,27 @@ class Mobiliario extends Conexion{
 	public function eliminar($id){
 		$this->sentencia = "DELETE FROM mobiliario WHERE IDmobiliario=$id";
 		$this->ejecutarSentencia();
-}
+	}
+
+	public function nombres(){
+			$this->sentencia = "SELECT nombre FROM mobiliario;";
+			$res = $this->obtenerSentencia();
+			$nombres = "";
+			while($fila = $res->fetch_assoc()){
+			$nombres = $nombres."'".$fila["nombre"]."',";
+			}
+			return $nombres;
+		}
+
+		public function cantidades(){
+			$this->sentencia = "SELECT cantidad FROM mobiliario;";
+			$res = $this->obtenerSentencia();
+			$cantidades = "";
+			while($fila = $res->fetch_assoc()){
+			$cantidades = $cantidades.$fila["cantidad"].",";
+			}
+			return $cantidades;
+		}
 }
 
  ?>

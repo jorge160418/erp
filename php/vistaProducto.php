@@ -3,7 +3,9 @@
 	$obj = new Producto();
  ?>
 <section id="principal">
-
+	<div>
+		<a href="?sec=gpro"><input type="button" value="Generar Gráfica"></a>
+	</div>
 	<form action="" method="post">
 		Nombre: <input type="text" name="nombre"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
@@ -52,8 +54,8 @@
 			<th>Precio de compra</th>
 			<th>Cantidad</th>
 			<th>Cantidad minima</th>
-			<th>Cantidad maxima</th>
 			<th>Categoria</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -66,7 +68,6 @@
 				echo "<td>".$fila["cantmin"]."</td>";
 				echo "<td>".$fila["cantmax"]."</td>";
 				echo "<td>".$fila["categoria"]."</td>";
-				echo "</tr>";
 			
 		 ?>
 	<td>

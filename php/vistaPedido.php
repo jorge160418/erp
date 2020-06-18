@@ -47,6 +47,7 @@
 			<th>Cantidad</th>
 			<th>Direccion</th>
 			<th>IDproducto</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -56,9 +57,7 @@
 				echo "<td>".$fila["precio"]."</td>";
 				echo "<td>".$fila["cantidad"]."</td>";
 				echo "<td>".$fila["direccion"]."</td>";
-				echo "<td>".$fila["IDproducto"]."</td>";
-				echo "</tr>";
-			
+				echo "<td>".$fila["IDproducto"]."</td>";		
 		 ?>
 	<td>
 				<form action="" method="post" class="eliminar">

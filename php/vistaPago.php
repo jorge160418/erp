@@ -44,6 +44,7 @@
 			<th>Fecha de deposito</th>
 			<th>Metodo de pago</th>
 			<th>Descripcion</th>
+			<th>Eliminar</th>
 		</tr>
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
@@ -52,9 +53,7 @@
 				echo "<td>".$fila["sal"]."</td>";
 				echo "<td>".$fila["fecha_dep"]."</td>";
 				echo "<td>".$fila["met_pag"]."</td>";
-				echo "<td>".$fila["des"]."</td>";
-				echo "</tr>";
-			
+				echo "<td>".$fila["des"]."</td>";	
 		 ?>
 	<td>
 				<form action="" method="post" class="eliminar">
