@@ -6,6 +6,9 @@
 	<div>
 		<a href="?sec=gven"><input type="button" value="Generar Gráfica"></a>
 	</div>
+	<div>
+		<a href="?sec=rven"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="POST">
 		Fecha de venta: <input type="date" name="fecha"> <br>
 		IDCliente: <input type="text" name="IDCliente"> <br>

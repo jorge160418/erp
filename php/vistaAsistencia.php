@@ -3,6 +3,9 @@
 	$obj = new Asistencia();
  ?>
 <section id="principal">
+	<div>
+		<a href="?sec=rasi"><input type="button" value="Generar Reporte"></a>
+	</div>
 
 	<form action="" method="post">
 		Fecha: <input type="text" name="fecha"> <br>	

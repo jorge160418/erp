@@ -6,6 +6,9 @@
 	<div>
 		<a href="?sec=gmp"><input type="button" value="Generar Gráfica"></a>
 	</div>
+	<div>
+		<a href="?sec=rmp"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		Nombre: <input type="text" name="Nombre"> <br>
 		Tipo: <input type="text" name="Tipo"> <br>

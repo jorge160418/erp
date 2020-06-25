@@ -116,6 +116,33 @@
 					case 'gmob':
 					require_once("php/graficaMobiliario.php");
 					break;
+					case 'rpro':
+					header("Location: php/reporteProducto.php");
+					break;
+					case 'rasi':
+					header("Location: php/reporteAsistencia.php");
+					break;
+					case 'rcli':
+					header("Location: php/reporteCliente.php");
+					break;
+					case 'rcom':
+					header("Location: php/reporteCompra.php");
+					break;
+					case 'remp':
+					header("Location: php/reporteEmpleado.php");
+					break;
+					case 'rmp':
+					header("Location: php/reporteMateriaPrima.php");
+					break;
+					case 'rmob':
+					header("Location: php/reporteMobiliario.php");
+					break;
+					case 'rprov':
+					header("Location: php/reporteProveedor.php");
+					break;
+					case 'rven':
+					header("Location: php/reporteVenta.php");
+					break;
 			}
 		}
 	 ?>

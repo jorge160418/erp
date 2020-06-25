@@ -6,6 +6,9 @@
 	<div>
 		<a href="?sec=gcom"><input type="button" value="Generar Gráfica"></a>
 	</div>
+	<div>
+		<a href="?sec=rcom"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		Fecha: <input type="text" name="fecha"> <br>	
 		Total: <input type="text" name="total"> <br>		

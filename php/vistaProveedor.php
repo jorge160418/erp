@@ -3,7 +3,9 @@
 	$obj = new Proveedor();
  ?>
 <section id="principal">
-
+	<div>
+		<a href="?sec=rprov"><input type="button" value="Generar Reporte"></a>
+	</div>
 	<form action="" method="post">
 		Nombre: <input type="text" name="nombre"> <br>
 		Telefono: <input type="" name="telefono"> <br>
