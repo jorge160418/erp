@@ -9,7 +9,11 @@
 
 	<form action="" method="post">
 		Fecha: <input type="text" name="fecha"> <br>	
-		IDempleado: <input type="text" name="idempleado"> <br>		
+		IDempleado:
+		<?php
+		$obj->obtenerEmpleado();
+		?>
+		<br>	
 		Hora: <input type="text" name="hora"> <br>
 		
 		<input type="submit" value="Agregar Asistencia" name="alta"><br>
@@ -26,10 +30,10 @@
 	<?php 
 		if(isset($_POST["alta"])){
 			$fecha = $_POST["fecha"];			
-			$idempleado = $_POST["idempleado"];
+			$IDempleado = $_POST["empleado"];
 			$hora = $_POST["hora"];	
 				
-			$obj->alta($fecha,$idempleado,$hora);
+			$obj->alta($fecha,$IDempleado,$hora);
 			echo "<h2>Asistencia agregada</h2>";
 		}
 
@@ -47,9 +51,9 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
-				echo "<td>".$fila["Fecha"]."</td>";
-				echo "<td>".$fila["IDempleado"]."</td>";
-				echo "<td>".$fila["Hora"]."</td>";
+				echo "<td>".$fila["fecha"]."</td>";
+				echo "<td>".$fila["nombre"]." ".$fila["appaterno"]."  ".$fila["apmaterno"]."  ".$fila["cargo"]."</td>";
+				echo "<td>".$fila["hora"]."</td>";
 				?>
 				<td>
 				<form action="" method="post" class="eliminar">

@@ -5,7 +5,10 @@
 <section id="principal">
 
 	<form action="" method="post">
-		IDmobiliario: <input type="" name="IDmobiliario"> <br>
+		IDmobiliario:
+		<?php
+		$obj->obtenerMobiliario();
+		?>
 		Fecha de reemplazo: <input type="date" name="fecha"> <br>
 		Costo: <input type="" name="costo"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
@@ -23,7 +26,7 @@
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
-			$IDmobiliario = $_POST["IDmobiliario"];
+			$IDmobiliario = $_POST["mobiliario"];
 			$fecha = $_POST["fecha"];
 			$costo = $_POST["costo"];
 			$descripcion = $_POST["descripcion"];
@@ -46,7 +49,8 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
-				echo "<td>".$fila["IDmobiliario"]."</td>";
+				echo "<td>".$fila["nombre"]."  ".$fila["descripcion"]." </td>";
+				echo "<td>".$fila["fecha"]."</td>";
 				echo "<td>".$fila["fecha"]."</td>";
 				echo "<td>".$fila["costo"]."</td>";
 				echo "<td>".$fila["descripcion"]."</td>";

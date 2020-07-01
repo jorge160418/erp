@@ -8,7 +8,11 @@
 		Fecha: <input type="text" name="fecha"> <br>	
 		Cantidad: <input type="text" name="cantidad"> <br>		
 		Descripcion: <input type="text" name="descripcion"> <br>
-		IDproducto: <input type="text" name="IDproducto"> <br>
+		IDproducto: 
+			<?php
+		$obj->obtenerProducto();
+		?>
+		<br>
 		
 		<input type="submit" value="Agregar Devolucion" name="alta"><br>
 		<?php 
@@ -26,7 +30,7 @@
 			$fecha = $_POST["fecha"];			
 			$cantidad = $_POST["cantidad"];
 			$descripcion = $_POST["descripcion"];
-			$IDproducto = $_POST["IDproducto"];	
+			$IDproducto = $_POST["producto"];	
 			
 				
 			$obj->alta($fecha,$cantidad,$descripcion,$IDproducto);
@@ -51,7 +55,7 @@
 				echo "<td>".$fila["fecha"]."</td>";	
 				echo "<td>".$fila["cantidad"]."</td>";	
 				echo "<td>".$fila["descripcion"]."</td>";
-				echo "<td>".$fila["IDproducto"]."</td>";
+				echo "<td>".$fila["nombre"]."  ".$fila["descripcion"]."</td>";
 				?>
 				<td>
 				<form action="" method="post" class="eliminar">

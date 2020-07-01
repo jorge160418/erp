@@ -7,7 +7,10 @@
 	<form action="" method="post">
 		Nombre del proyecto: <input type="text" name="nombre_pro"> <br>
 		Tipo de proyecto: <input type="text" name="tipo_pro"> <br>
-		IDempleado: <input type="" name="IDempleado"> <br>
+		IDempleado: 
+		<?php
+		$obj->obtenerEmpleado();
+		?>
 		Fecha de inicio: <input type="date" name="fecha_in"> <br>
 		Fecha de termino: <input type="date" name="fecha_fin"> <br>
 		Descripcion: <input type="text" name="descripcion"> <br>
@@ -26,8 +29,8 @@
 	<?php 
 		if(isset($_POST["alta"])){
 			$nombre_pro = $_POST["nombre_pro"];
-			$tipo_pro = $_POST["`tipo_pro"];
-			$IDempleado = $_POST["IDempleado"];
+			$tipo_pro = $_POST["tipo_pro"];
+			$IDempleado = $_POST["empleado"];
 			$fecha_in = $_POST["fecha_in"];
 			$fecha_fin = $_POST["fecha_fin"];
 			$descripcion = $_POST["descripcion"];
@@ -54,7 +57,7 @@
 				echo "<tr>";
 				echo "<td>".$fila["nombre_pro"]."</td>";
 				echo "<td>".$fila["tipo_pro"]."</td>";
-				echo "<td>".$fila["IDempleado"]."</td>";
+				echo  "<td>".$fila["nombre"]."  ".$fila["appaterno"]." ".$fila["apmaterno"]." </td>";
 				echo "<td>".$fila["fecha_in"]."</td>";
 				echo "<td>".$fila["fecha_fin"]."</td>";
 				echo "<td>".$fila["descripcion"]."</td>";				

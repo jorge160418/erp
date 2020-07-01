@@ -10,7 +10,11 @@
 		Pago Hora: <input type="text" name="pago_hora"> <br>
 		Horas Extra: <input type="text" name="horas_extra"> <br>
 		Bonos: <input type="text" name="bonos"> <br>
-		IDempleado: <input type="text" name="IDempleado"> <br>				
+		IDempleado: 
+		<?php
+		$obj->obtenerEmpleado();
+		?>
+		<br>			
 		
 		<input type="submit" value="Agregar Jornada" name="alta"><br>
 		<?php 
@@ -30,7 +34,7 @@
 			$pago_hora = $_POST["pago_hora"];	
 			$horas_extra = $_POST["horas_extra"];	
 			$bonos = $_POST["bonos"];			
-			$IDempleado = $_POST["IDempleado"];								
+			$IDempleado = $_POST["empleado"];								
 				
 			$obj->alta($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos,$IDempleado);
 			echo "<h2>Jornada agregada</h2>";
@@ -58,7 +62,7 @@
 				echo "<td>".$fila["pago_hora"]."</td>";
 				echo "<td>".$fila["horas_extra"]."</td>";
 				echo "<td>".$fila["bonos"]."</td>";	
-				echo "<td>".$fila["IDempleado"]."</td>";
+				echo "<td>".$fila["nombre"]."  ".$fila["appaterno"]." ".$fila["apmaterno"]."  ".$fila["puesto"]." </td>";
 				?>
 				<td>
 				<form action="" method="post" class="eliminar">

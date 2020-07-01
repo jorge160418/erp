@@ -9,8 +9,8 @@
 			$this->ejecutarSentencia();
 		}
 
-		public function consulta(){
-			$this->sentencia = "SELECT * FROM compra";
+		public function consulta(){$this->sentencia = "SELECT c.nombre,c.apepaterno,c.apematerno, v.fecha,v.total,v.tipo_pago FROM compra v, cliente c WHERE v.id_cliente=c.IDCliente";
+
 			return $this->obtenerSentencia();
 		}
 
@@ -38,6 +38,15 @@
 			}
 			return $cantidades;
 		}
+		public function obtenerClientes(){
+		$this-> sentencia = "SELECT IDCliente,nombre,apepaterno,apematerno FROM cliente ";
+		$res = $this->obtenerSentencia();
+		echo "<select name='cliente'>";
+		while($fila = $res->fetch_assoc()){
+			echo "<option value='".$fila["IDCliente"]."'> ".$fila["nombre"]." ".$fila["apepaterno"]."  ".$fila["apematerno"]." </option>";
+		}
+		echo "</select>";
+	}
 		
 	}
 

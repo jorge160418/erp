@@ -7,9 +7,17 @@
 	<form action="" method="post">
 		Fecha de mantenimiento: <input type="date" name="fecha_man"> <br>
 		Area: <input type="text" name="area"> <br>
-		ID de mobiliario: <input type="" name="IDmob"> <br>
+		ID de mobiliario: 
+		<?php 
+		$obj->obtenerMobiliario();
+		 ?>
+		<br>	
 		Costo de mantenimiento: <input type="" name="costo_man"> <br>
-		IDempleado: <input type="" name="IDempleado"> <br>
+		IDempleado:
+			<?php 
+		$obj->obtenerEmpleado();
+		 ?>
+		<br>
 				<input type="submit" value="Agregar Mantenimiento" name="alta">
 				<br>
 					<?php 
@@ -26,9 +34,9 @@
 		if(isset($_POST["alta"])){
 			$fecha_man = $_POST["fecha_man"];
 			$area = $_POST["area"];
-			$IDmob = $_POST["IDmob"];
+			$IDmob = $_POST["mobiliario"];
 			$costo_man = $_POST["costo_man"];
-			$IDempleado = $_POST["IDempleado"];
+			$IDempleado = $_POST["empleado"];
 			
 			$obj->alta($fecha_man,$area,$IDmob,$costo_man,$IDempleado);
 	echo "<h2>Mantenimiento agregado</h2>";
@@ -51,9 +59,9 @@
 				echo "<tr>";
 				echo "<td>".$fila["fecha_man"]."</td>";
 				echo "<td>".$fila["area"]."</td>";
-				echo "<td>".$fila["IDmob"]."</td>";
+				echo  "<td>".$fila["nombre"]."  ".$fila["descripcion"]." </td>";
 				echo "<td>".$fila["costo_man"]."</td>";
-				echo "<td>".$fila["IDempleado"]."</td>";
+				echo  "<td>".$fila["nombre"]."  ".$fila["appaterno"]." ".$fila["apmaterno"]." </td>";
 
 		 ?>
 		 	<td>

@@ -5,7 +5,11 @@
 <section id="principal">
 
 	<form action="" method="post">
-		IDempelado: <input type="" name="IDempleado"> <br>
+		IDempelado:
+			<?php
+		$obj->obtenerEmpleado();
+		?>
+		<br>
 		Saldo: <input type="text" name="sal"> <br>
 		Fecha de deposito: <input type="date" name="fecha_dep"> <br>
 		Metodo de pago: <input type="text" name="met_pag"> <br>
@@ -24,7 +28,7 @@
 	</form>
 	<?php 
 		if(isset($_POST["alta"])){
-			$IDempleado = $_POST["IDempleado"];
+			$IDempleado = $_POST["empleado"];
 			$sal = $_POST["sal"];
 			$fecha_dep = $_POST["fecha_dep"];
 			$met_pag = $_POST["met_pag"];
@@ -49,7 +53,7 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
-				echo "<td>".$fila["IDempleado"]."</td>";
+				echo "<td>".$fila["nombre"]."  ".$fila["appaterno"]." ".$fila["apmaterno"]." </td>";
 				echo "<td>".$fila["sal"]."</td>";
 				echo "<td>".$fila["fecha_dep"]."</td>";
 				echo "<td>".$fila["met_pag"]."</td>";

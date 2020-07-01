@@ -6,7 +6,10 @@
 
 	<form action="" method="post">
 		Registro: <input type="text" name="registro"> <br>	
-		IDusuario: <input type="text" name="idusuario"> <br>		
+		IDusuario:<?php
+		$obj->obtenerUsuario();
+		?>
+		<br>	
 		Movimiento Actual: <input type="text" name="movactual"> <br>
 		Movimiento Tabla: <input type="text" name="movtabla"> <br>
 		<input type="submit" value="Agregar Actividad" name="alta"><br>
@@ -23,7 +26,7 @@
 	<?php 
 		if(isset($_POST["alta"])){
 			$registro = $_POST["registro"];			
-			$idusuario = $_POST["idusuario"];
+			$idusuario = $_POST["usuario"];
 			$movactual = $_POST["movactual"];	
 			$movtabla = $_POST["movtabla"];	
 
@@ -46,7 +49,7 @@
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
 				echo "<td>".$fila["registro"]."</td>";
-				echo "<td>".$fila["IDusuario"]."</td>";
+				echo "<td>".$fila["nombre"]."</td>";
 				echo "<td>".$fila["movimiento_act"]."</td>";
 				echo "<td>".$fila["movimiento_tabla"]."</td>";
 				?>

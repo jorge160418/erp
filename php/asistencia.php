@@ -10,7 +10,7 @@
 		}
 
 		public function consulta(){
-			$this->sentencia = "SELECT * FROM asistencia";
+			$this->sentencia = "SELECT e.nombre,e.appaterno,e.apmaterno,e.cargo, a.fecha,a.hora FROM asistencia a, empleado e WHERE a.IDempleado=e.IDempleado";
 			return $this->obtenerSentencia();
 		}
 
@@ -18,6 +18,15 @@
 			$this->sentencia = "DELETE FROM asistencia WHERE IDasistencia=$id";
 			$this->ejecutarSentencia();
 		}
+		public function obtenerEmpleado(){
+		$this-> sentencia = "SELECT IDempleado,nombre,appaterno,apmaterno, cargo FROM empleado ";
+		$res = $this->obtenerSentencia();
+		echo "<select name='empleado'>";
+		while($fila = $res->fetch_assoc()){
+			echo "<option value='".$fila["IDempleado"]."'> ".$fila["nombre"]." ".$fila["appaterno"]."  ".$fila["apmaterno"]." ".$fila["cargo"]." </option>";
+		}
+		echo "</select>";
+	}
 	}
 
  ?>

@@ -5,8 +5,12 @@
 <section id="principal">
 
 	<form action="" method="post">
-		IDmateriaprima: <input type="text" name="IDmateriaprima"> <br>	
-		IDcompra: <input type="text" name="IDcompra"> <br>		
+		Materia prima: 
+		<?php $obj->obtenerMateria(); ?>
+		<br>	
+		Compra: 
+		<?php $obj->obtenerCompra(); ?>
+		 <br>		
 		Cantidad: <input type="text" name="cantidad"> <br>
 		
 		
@@ -38,8 +42,8 @@
 
 	<table>
 		<tr>
-			<th>IDmateriaprima</th>
-			<th>IDcompra</th>
+			<th>Materia Prima</th>
+			<th>Compra</th>
 			<th>Cantidad</th>
 			<th>Eliminar</th>
 			
@@ -47,8 +51,8 @@
 		<?php 
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr>";
-				echo "<td>".$fila["IDmateriaprima"]."</td>";
-				echo "<td>".$fila["IDcompra"]."</td>";				
+				echo "<td>".$fila["Nombre"]."</td>";
+				echo "<td>".$fila["fecha"]."</td>";				
 				echo "<td>".$fila["cantidad"]."</td>";
 				?>
 				<td>

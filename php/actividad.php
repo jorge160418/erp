@@ -9,7 +9,7 @@
 		}
 
 		public function consulta(){
-			$this->sentencia = "SELECT * FROM actividad";
+			$this->sentencia = "SELECT u.nombre, a.registro,a.movimiento_act,a.movimiento_tabla FROM actividad a, usuario u WHERE a.IDusuario=u.IDusuario";
 			return $this->obtenerSentencia();
 		}
 
@@ -17,6 +17,15 @@
 			$this->sentencia = "DELETE FROM actividad WHERE IDactividad=$id";
 			$this->ejecutarSentencia();
 		}
+			public function obtenerUsuario(){
+		$this-> sentencia = "SELECT IDusuario,nombre FROM usuario ";
+		$res = $this->obtenerSentencia();
+		echo "<select name='usuario'>";
+		while($fila = $res->fetch_assoc()){
+			echo "<option value='".$fila["IDusuario"]."'> ".$fila["nombre"]." </option>";
+		}
+		echo "</select>";
+	}
 
 	}
  ?>

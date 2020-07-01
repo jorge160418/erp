@@ -3,7 +3,7 @@
 	class Conexion{
 
 		private $usuario="root";
-		private $base="erpsi";
+		private $base="erpsi2";
 		private $password="";
 		private $host="localhost";
 		protected $sentencia = "";
